@@ -1,8 +1,8 @@
 {
-	"name": "decorator-sample",
-	"description": "Sample for the decorator API",
+	"name": "display eol",
+	"description": "Displays end-of-line invisible characters",
 	"version": "0.0.1",
-	"publisher": "Microsoft",
+	"publisher": "Soham Kamani",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.15.0"
@@ -24,5 +24,8 @@
 		"vscode": "^1.1.5",
 		"typescript": "^2.5.3",
 		"@types/node": "7.0.4"
+	},
+	"dependencies": {
+		"vsce": "^1.36.2"
 	}
 }
