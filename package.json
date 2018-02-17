@@ -1,8 +1,12 @@
 {
-	"name": "display eol",
-	"description": "Displays end-of-line invisible characters",
-	"version": "0.0.1",
-	"publisher": "Soham Kamani",
+	"name": "code-eol",
+	"displayName": "code-eol",
+	"description": "Display newline characters in your code",
+	"version": "0.0.2",
+	"publisher": "sohamkamani",
+	"repository": {
+		"url": "https://github.com/sohamkamani/code-eol"
+	},
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.15.0"
@@ -16,7 +20,7 @@
 	"main": "./out/extension",
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
+		"compile": "/Users/soham/go/src/github.com/sohamkamani/vscode-eol/node_modules/typescript/bin/tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"postinstall": "node ./node_modules/vscode/bin/install"
 	},
