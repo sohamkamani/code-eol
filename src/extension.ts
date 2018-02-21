@@ -33,16 +33,33 @@ export function activate (context: vscode.ExtensionContext) {
     if (!activeEditor) {
       return
     }
-    const regEx = /\n/g
+    const regEx = /(\r(?!\n))|(\r?\n)/g
     const text = activeEditor.document.getText()
     const newLines: vscode.DecorationOptions[] = []
     let match
     while ((match = regEx.exec(text))) {
+      const decTxt = getDecTxt(match[0])
       const startPos = activeEditor.document.positionAt(match.index)
       const endPos = activeEditor.document.positionAt(match.index + 1)
-      const decoration: vscode.DecorationOptions = { range: new vscode.Range(startPos, endPos), renderOptions : { before : { contentText: "⬎"}} }
+      const decoration: vscode.DecorationOptions = {
+        range: new vscode.Range(startPos, endPos),
+        renderOptions: { before: { contentText: decTxt } }
+      }
       newLines.push(decoration)
     }
     activeEditor.setDecorations(nullDecoration, newLines)
+  }
+}
+
+function getDecTxt(match) {
+  switch (match) {
+    case '\n':
+      return '↓'
+    case '\r\n':
+      return '↵' 
+    case '\r':
+      return '←'
+    default:
+      return ''
   }
 }
