@@ -33,6 +33,8 @@ export function activate (context: vscode.ExtensionContext) {
     if (!activeEditor) {
       return
     }
+    const configuration = vscode.workspace.getConfiguration('code-eol')
+    const decorationColor = configuration.color
     const regEx = /(\r(?!\n))|(\r?\n)/g
     const text = activeEditor.document.getText()
     const newLines: vscode.DecorationOptions[] = []
@@ -43,7 +45,12 @@ export function activate (context: vscode.ExtensionContext) {
       const endPos = activeEditor.document.positionAt(match.index + 1)
       const decoration: vscode.DecorationOptions = {
         range: new vscode.Range(startPos, endPos),
-        renderOptions: { before: { contentText: decTxt } }
+        renderOptions: { 
+          before: {
+            contentText: decTxt,
+            color: decorationColor
+          }
+        }
       }
       newLines.push(decoration)
     }
