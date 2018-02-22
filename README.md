@@ -11,3 +11,7 @@ Supports `\n`, `\r\n`, and `\r` returns
 **Sample with CRLF**
 
 ![sample](sample_cl.png)
+
+## Settings
+
+`code-eol.color` - Choose the color for displaying the EOL character. Defaults to the current theme color. (Example: `"code-eol.color":"#F00"`)
