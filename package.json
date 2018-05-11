@@ -2,7 +2,7 @@
 	"name": "code-eol",
 	"displayName": "code-eol",
 	"description": "Display newline characters in your code",
-	"version": "0.2.3",
+	"version": "0.3.3",
 	"publisher": "sohamkamani",
 	"repository": {
 		"url": "https://github.com/sohamkamani/code-eol"
@@ -33,17 +33,15 @@
 		"vsce": "^1.36.2"
 	},
 	"contributes": {
-		"configuration":[
-			{
-				"type": "object",
-				"title": "code-eol Configuration",
-				"properties": {
-					"code-eol.color": {
-						"type": ["string", "null"],
-						"default": null
-					}
+		"configuration": [{
+			"type": "object",
+			"title": "code-eol Configuration",
+			"properties": {
+				"code-eol.color": {
+					"type": ["string", "null"],
+					"default": null
 				}
 			}
-		]
+		}]
 	}
 }

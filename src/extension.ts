@@ -42,11 +42,11 @@ export function activate (context: vscode.ExtensionContext) {
     while ((match = regEx.exec(text))) {
       const decTxt = getDecTxt(match[0])
       const startPos = activeEditor.document.positionAt(match.index)
-      const endPos = activeEditor.document.positionAt(match.index + 1)
+      const endPos = activeEditor.document.positionAt(match.index)
       const decoration: vscode.DecorationOptions = {
         range: new vscode.Range(startPos, endPos),
-        renderOptions: { 
-          before: {
+        renderOptions: {
+          after: {
             contentText: decTxt,
             color: decorationColor
           }
@@ -58,12 +58,12 @@ export function activate (context: vscode.ExtensionContext) {
   }
 }
 
-function getDecTxt(match) {
+function getDecTxt (match) {
   switch (match) {
     case '\n':
       return '↓'
     case '\r\n':
-      return '↵' 
+      return '↵'
     case '\r':
       return '←'
     default:
